@@ -5,7 +5,6 @@ import axios from "axios";
 export default function HomeScreen({ route }) {
   const { token } = route.params;
   const [clientData, setClientData] = useState(null);
-  const [routes, setRoutes] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,9 +15,8 @@ export default function HomeScreen({ route }) {
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setClientData(response.data);
-        setRoutes(response.data.diasRutas);
       } catch (error) {
-        console.error("Error fetching client data", error);
+        console.error("Error", error);
       }
     };
     fetchData();
@@ -41,7 +39,7 @@ export default function HomeScreen({ route }) {
             <View style={styles.itemContainer}>
               <View style={styles.itemContainerImage}>
                 <Image
-                  style={styles.visitImageExample}
+                  style={styles.visitaImageExample}
                   source={require('../assets/camera.png')}
                 />
               </View>
@@ -102,7 +100,7 @@ const styles = StyleSheet.create({
     fontSize:16, 
     color: "#4bd1be"
   },
-  visitImageExample: {
+  visitaImageExample: {
     width:40, 
     height:40,
   }

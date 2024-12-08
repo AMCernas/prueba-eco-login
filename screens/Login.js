@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Button, StyleSheet, Alert, Image, Pressable } from "react-native";
+import { View, Text, TextInput, StyleSheet, Alert, Image, Pressable } from "react-native";
 import axios from "axios";
 
 export default function LoginScreen({ navigation }) {
@@ -17,7 +17,7 @@ export default function LoginScreen({ navigation }) {
       if (response.data.cveRespuesta === 1) {
         navigation.navigate("Home", { token: response.data.token });
       } else {
-        Alert.alert("Error", "Usuario o contraseña incorrectos.");
+        Alert.alert("Error", "Correo o contraseña incorrectos.");
       }
     } catch (error) {
       Alert.alert("Error", "No se pudo iniciar sesión.");
